@@ -1,0 +1,8 @@
+#!/bin/sh
+sep=$1
+gcol=$2
+tcol=$3
+awk -F$sep 'BEGIN {OFS= ","; 
+									print "item,count,sum,mean"}
+						NR!=1 {a[$'$gcol']; cc[$'$gcol']+=1; ss[$'$gcol']+=$'$tcol'}
+						END {for (i in a) print i,cc[i],ss[i],ss[i]/cc[i]}' $4

@@ -1,0 +1,7 @@
+#!/bin/sh
+sep=$1
+col=$2 
+awk -F$sep 'BEGIN {OFS=",";
+									print "item,count"}
+						NR!= 1 {a[$'$col']; cc[$'$col']+=1;} 
+						END {for (i in a) print i,cc[i]}' $3

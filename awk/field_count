@@ -1,0 +1,3 @@
+#!/bin/sh
+sep=$1
+awk -F$sep '{print NF}' $2 | sort | uniq -c
